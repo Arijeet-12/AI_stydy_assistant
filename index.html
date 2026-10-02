@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>AI Study Assistant</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+<div class="app">
+    <aside>
+        <div class="brand">✦
+             <span>StudyAI</span>
+            </div>
+            <p class="muted">Your personal study workspace</p>
+            <nav>
+                <button class="nav active" data-view="dashboard">⌂ Dashboard</button>
+                <button class="nav" data-view="documents">▣ My Notes</button>
+                <button class="nav" data-view="ask">◉ Ask AI</button>
+                <button class="nav" data-view="tools">✦ Study Tools</button>
+            </nav>
+            <div class="side-card">
+                <b>Study smarter</b>
+                <p>Upload your notes and turn them into questions, summaries and revision material.</p>
+            </div>
+        </aside>
+        <main>
+            <header>
+                <div>
+                    <div class="eyebrow">AI STUDY ASSISTANT</div>
+                    <h1 id="title">Good evening 👋</h1>
+                    <p class="muted">Learn faster from your own study material.</p>
+                </div>
+                <button class="primary" onclick="show('documents')">＋ Upload Notes</button>
+            </header>
+<section id="dashboard" class="view active">
+    <div class="stats">
+        <div>
+            <span>Documents</span>
+            <strong id="sDocs">0</strong>
+        </div>
+        <div>
+            <span>Questions asked</span>
+            <strong id="sQ">0</strong>
+        </div>
+        <div>
+            <span>Flashcards</span>
+            <strong id="sCards">0</strong>
+        </div>
+        <div>
+            <span>MCQs generated</span>
+            <strong id="sMcq">0</strong>
+        </div>
+    </div>
+    <div class="grid">
+        <div class="panel hero">
+            <div>
+                <span class="pill">STUDY HUB</span>
+                <h2>Turn your notes into an active learning system.</h2>
+                <p>Upload a PDF or text file, then ask questions, generate revision material and test yourself.</p>
+                <button class="primary" onclick="show('documents')">Start with your notes →</button>
+            </div>
+            <div class="orb">✦</div>
+        </div>
+        <div class="panel">
+            <h3>Quick actions</h3>
+            <button class="action" onclick="show('ask')">◉ Ask a question</button>
+            <button class="action" onclick="generate('summary')">▤ Make a summary</button>
+            <button class="action" onclick="generate('flashcards')">◇ Create flashcards</button>
+            <button class="action" onclick="generate('mcqs')">✓ Generate MCQs</button>
+        </div>
+    </div>
+    <div class="panel">
+        <h3>How it works</h3>
+        <div class="steps">
+            <span>
+                <b>01</b>
+                 Upload notes</span>
+                 <span>
+                    <b>02</b>
+                     Ask or generate
+                    </span><span><b>03</b> Revise & test</span></div></div></section>
+<section id="documents" class="view"><div class="panel upload"><h2>My Notes</h2><p class="muted">Upload PDF or TXT files. Your documents stay in your local project database.</p><label class="drop"><input id="file" type="file" accept=".pdf,.txt" onchange="upload()"><span>📄</span><b>Choose a PDF or TXT file</b><small>Click here to upload</small></label><div id="docs"></div></div></section>
+<section id="ask" class="view"><div class="panel"><h2>Ask AI</h2><p class="muted">Ask questions based on your uploaded notes.</p><select id="docSelect"><option value="">All documents</option></select><div class="askbox"><textarea id="question" placeholder="e.g. Explain normalization in DBMS with an example..."></textarea><button class="primary" onclick="ask()">Ask →</button></div><div id="answer"></div></div></section>
+<section id="tools" class="view"><div class="tool-grid"><div class="panel"><h2>Study Tools</h2><p class="muted">Choose a tool and optionally select a document.</p><select id="toolDoc"><option value="">All documents</option></select><div class="tool-buttons"><button onclick="generate('summary')">▤ Summary</button><button onclick="generate('flashcards')">◇ Flashcards</button><button onclick="generate('mcqs')">✓ MCQs</button></div></div><div class="panel" id="output"><h3>Generated material</h3><p class="muted">Your generated content will appear here.</p></div></div></section>
+</main></div><script src="app.js"></script></body></html>
